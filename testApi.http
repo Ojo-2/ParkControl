@@ -1,0 +1,125 @@
+### ParkControl – Pruebas de integración secuenciales
+### Usar con la extensión "REST Client" de VS Code (humao.rest-client)
+
+@base = http://localhost:3000/api
+
+# ─────────────────────────────────────────────────────────────
+# 0. Health Check
+# ─────────────────────────────────────────────────────────────
+### GET {{base}}/health
+
+
+# ─────────────────────────────────────────────────────────────
+# 1. Ver tablero de cajones (todos disponibles al inicio)
+# ─────────────────────────────────────────────────────────────
+### GET {{base}}/infraestructura/cajones
+
+
+# ─────────────────────────────────────────────────────────────
+# 2. ENTRADA – Registrar vehículo AUTOMOVIL en cajón A-01
+# ─────────────────────────────────────────────────────────────
+### POST {{base}}/estancias/entrada
+Content-Type: application/json
+
+{
+  "placa": "ABC-123",
+  "tipoVehiculo": "AUTOMOVIL",
+  "cajonId": "A-01"
+}
+
+
+# ─────────────────────────────────────────────────────────────
+# 3. ENTRADA – Registrar MOTOCICLETA en cajón M-01
+# ─────────────────────────────────────────────────────────────
+### POST {{base}}/estancias/entrada
+Content-Type: application/json
+
+{
+  "placa": "XYZ 789",
+  "tipoVehiculo": "MOTOCICLETA",
+  "cajonId": "M-01"
+}
+
+
+# ─────────────────────────────────────────────────────────────
+# 4. ERROR esperado – Placa duplicada (RN-05)
+# ─────────────────────────────────────────────────────────────
+### POST {{base}}/estancias/entrada
+Content-Type: application/json
+
+{
+  "placa": "ABC123",
+  "tipoVehiculo": "AUTOMOVIL",
+  "cajonId": "A-02"
+}
+
+
+# ─────────────────────────────────────────────────────────────
+# 5. ERROR esperado – Incompatibilidad cajón (RN-10)
+#    Una MOTOCICLETA no puede entrar en cajón de categoría AUTOMOVIL
+# ─────────────────────────────────────────────────────────────
+### POST {{base}}/estancias/entrada
+Content-Type: application/json
+
+{
+  "placa": "NEW999",
+  "tipoVehiculo": "MOTOCICLETA",
+  "cajonId": "A-02"
+}
+
+
+# ─────────────────────────────────────────────────────────────
+# 6. CONSULTA DE SALIDA – Cotización sin cobrar
+# ─────────────────────────────────────────────────────────────
+### GET {{base}}/estancias/salida/ABC123
+
+
+# ─────────────────────────────────────────────────────────────
+# 7. PAGO – Registrar cobro (reemplazar EST-xxx con el ID real)
+# ─────────────────────────────────────────────────────────────
+### POST {{base}}/estancias/pago
+Content-Type: application/json
+
+{
+  "estanciaId": "REEMPLAZAR_CON_ID_REAL",
+  "metodoPago": "EFECTIVO",
+  "requiereFactura": false
+}
+
+
+# ─────────────────────────────────────────────────────────────
+# 8. PAGO con factura individual
+# ─────────────────────────────────────────────────────────────
+### POST {{base}}/estancias/pago
+Content-Type: application/json
+
+{
+  "estanciaId": "REEMPLAZAR_CON_ID_REAL",
+  "metodoPago": "TARJETA",
+  "requiereFactura": true,
+  "datosFiscales": {
+    "rfc": "XAXX010101000",
+    "razonSocial": "Público en General",
+    "codigoPostal": "06600",
+    "usoCFDI": "G03"
+  }
+}
+
+
+# ─────────────────────────────────────────────────────────────
+# 9. VERIFICAR cajón liberado tras el pago
+# ─────────────────────────────────────────────────────────────
+### GET {{base}}/infraestructura/cajones
+
+
+# ─────────────────────────────────────────────────────────────
+# 10. ADMIN – Crear nuevo cajón dinámicamente (RF-11)
+# ─────────────────────────────────────────────────────────────
+### POST {{base}}/infraestructura/cajones
+Content-Type: application/json
+
+{
+  "pisoId": "PISO-1",
+  "codigo": "A-03",
+  "categoria": "AUTOMOVIL"
+}
