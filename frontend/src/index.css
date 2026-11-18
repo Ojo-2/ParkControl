@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* Reset del contenedor raíz que venía del scaffold de Vite */
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  border: none;
+  min-height: 100svh;
+  display: block;
+}

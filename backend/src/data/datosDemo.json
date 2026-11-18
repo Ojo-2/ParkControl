@@ -1,0 +1,251 @@
+{
+  "pisos": [
+    {
+      "id": "PISO-1",
+      "nombre": "Planta Baja",
+      "estado": "ACTIVO"
+    }
+  ],
+  "cajones": [
+    {
+      "id": "A-01",
+      "pisoId": "PISO-1",
+      "codigo": "A-01",
+      "categoria": "AUTOMOVIL",
+      "estado": "DISPONIBLE",
+      "estanciaActivaId": null
+    },
+    {
+      "id": "A-02",
+      "pisoId": "PISO-1",
+      "codigo": "A-02",
+      "categoria": "AUTOMOVIL",
+      "estado": "OCUPADO",
+      "estanciaActivaId": "EST-1794961971158"
+    },
+    {
+      "id": "M-01",
+      "pisoId": "PISO-1",
+      "codigo": "M-01",
+      "categoria": "MOTOCICLETA",
+      "estado": "DISPONIBLE",
+      "estanciaActivaId": null
+    },
+    {
+      "id": "A-03",
+      "pisoId": "PISO-1",
+      "codigo": "A-03",
+      "categoria": "AUTOMOVIL",
+      "estado": "DISPONIBLE",
+      "estanciaActivaId": null
+    }
+  ],
+  "estancias": [
+    {
+      "id": "EST-1794544528791",
+      "placa": "ABC123",
+      "tipoVehiculo": "AUTOMOVIL",
+      "cajonId": "A-01",
+      "codigoCajon": "A-01",
+      "pisoId": "PISO-1",
+      "fechaEntrada": "2026-11-13T02:35:28.775Z",
+      "fechaSalida": "2026-11-13T04:35:28.816Z",
+      "estado": "FINALIZADA",
+      "pagoId": "PAG-1794544528816"
+    },
+    {
+      "id": "EST-1794544528797",
+      "placa": "XYZ789",
+      "tipoVehiculo": "MOTOCICLETA",
+      "cajonId": "M-01",
+      "codigoCajon": "M-01",
+      "pisoId": "PISO-1",
+      "fechaEntrada": "2026-11-13T03:35:28.794Z",
+      "fechaSalida": "2026-11-13T04:35:28.826Z",
+      "estado": "FINALIZADA",
+      "pagoId": "PAG-1794544528826"
+    },
+    {
+      "id": "EST-1794961971158",
+      "placa": "XYZ789",
+      "tipoVehiculo": "AUTOMOVIL",
+      "cajonId": "A-02",
+      "codigoCajon": "A-02",
+      "pisoId": "PISO-1",
+      "fechaEntrada": "2026-11-18T00:32:51.158Z",
+      "fechaSalida": null,
+      "estado": "ACTIVA",
+      "pagoId": null
+    },
+    {
+      "id": "EST-1794962049051",
+      "placa": "GHI321",
+      "tipoVehiculo": "AUTOMOVIL",
+      "cajonId": "A-01",
+      "codigoCajon": "A-01",
+      "pisoId": "PISO-1",
+      "fechaEntrada": "2026-11-18T00:34:09.051Z",
+      "fechaSalida": "2026-11-18T00:34:28.708Z",
+      "estado": "FINALIZADA",
+      "pagoId": "PAG-1794962068708"
+    },
+    {
+      "id": "EST-1794962112334",
+      "placa": "GHI322",
+      "tipoVehiculo": "SUV",
+      "cajonId": "A-01",
+      "codigoCajon": "A-01",
+      "pisoId": "PISO-1",
+      "fechaEntrada": "2026-11-18T00:35:12.334Z",
+      "fechaSalida": "2026-11-18T00:35:23.881Z",
+      "estado": "FINALIZADA",
+      "pagoId": "PAG-1794962123881"
+    }
+  ],
+  "pagos": [
+    {
+      "id": "PAG-1794544528816",
+      "estanciaId": "EST-1794544528791",
+      "placa": "ABC123",
+      "tipoVehiculo": "AUTOMOVIL",
+      "cajonId": "A-01",
+      "codigoCajon": "A-01",
+      "fechaEntrada": "2026-11-13T02:35:28.775Z",
+      "fechaSalida": "2026-11-13T04:35:28.816Z",
+      "tiempoTotalMinutos": 121,
+      "desgloseTiempo": {
+        "horasDiurnas": 1,
+        "fraccionesDiurnas": 2,
+        "horasNocturnas": 1
+      },
+      "cobro": {
+        "montoTotal": 96,
+        "subtotal": 82.76,
+        "iva": 13.24,
+        "moneda": "MXN"
+      },
+      "detallesPago": {
+        "metodoPago": "EFECTIVO",
+        "cajeroId": null
+      },
+      "facturacion": {
+        "requiereFacturaIndividual": false,
+        "estadoFacturacion": "PENDIENTE_GLOBAL",
+        "tokenAutofacturacion": "AF-7B3A8C07-202611",
+        "datosFiscales": null
+      },
+      "creadoEn": "2026-11-13T04:35:28.816Z"
+    },
+    {
+      "id": "PAG-1794544528826",
+      "estanciaId": "EST-1794544528797",
+      "placa": "XYZ789",
+      "tipoVehiculo": "MOTOCICLETA",
+      "cajonId": "M-01",
+      "codigoCajon": "M-01",
+      "fechaEntrada": "2026-11-13T03:35:28.794Z",
+      "fechaSalida": "2026-11-13T04:35:28.826Z",
+      "tiempoTotalMinutos": 61,
+      "desgloseTiempo": {
+        "horasDiurnas": 1,
+        "fraccionesDiurnas": 0,
+        "horasNocturnas": 1
+      },
+      "cobro": {
+        "montoTotal": 68,
+        "subtotal": 58.62,
+        "iva": 9.38,
+        "moneda": "MXN"
+      },
+      "detallesPago": {
+        "metodoPago": "TARJETA",
+        "cajeroId": null
+      },
+      "facturacion": {
+        "requiereFacturaIndividual": true,
+        "estadoFacturacion": "FACTURADO_INDIVIDUAL",
+        "tokenAutofacturacion": "AF-D2E8C97D-202611",
+        "datosFiscales": {
+          "rfc": "XAXX010101000",
+          "razonSocial": "Público en General",
+          "codigoPostal": "06600",
+          "usoCFDI": "G03"
+        }
+      },
+      "creadoEn": "2026-11-13T04:35:28.826Z"
+    },
+    {
+      "id": "PAG-1794962068708",
+      "estanciaId": "EST-1794962049051",
+      "placa": "GHI321",
+      "tipoVehiculo": "AUTOMOVIL",
+      "cajonId": "A-01",
+      "codigoCajon": "A-01",
+      "fechaEntrada": "2026-11-18T00:34:09.051Z",
+      "fechaSalida": "2026-11-18T00:34:28.708Z",
+      "tiempoTotalMinutos": 1,
+      "desgloseTiempo": {
+        "horasDiurnas": 0,
+        "fraccionesDiurnas": 0,
+        "horasNocturnas": 0
+      },
+      "cobro": {
+        "montoTotal": 0,
+        "subtotal": 0,
+        "iva": 0,
+        "moneda": "MXN"
+      },
+      "detallesPago": {
+        "metodoPago": "EFECTIVO",
+        "cajeroId": null
+      },
+      "facturacion": {
+        "requiereFacturaIndividual": true,
+        "estadoFacturacion": "PENDIENTE_GLOBAL",
+        "tokenAutofacturacion": "AF-5153C3BE-202611",
+        "datosFiscales": null
+      },
+      "creadoEn": "2026-11-18T00:34:28.708Z"
+    },
+    {
+      "id": "PAG-1794962123881",
+      "estanciaId": "EST-1794962112334",
+      "placa": "GHI322",
+      "tipoVehiculo": "SUV",
+      "cajonId": "A-01",
+      "codigoCajon": "A-01",
+      "fechaEntrada": "2026-11-18T00:35:12.334Z",
+      "fechaSalida": "2026-11-18T00:35:23.881Z",
+      "tiempoTotalMinutos": 1,
+      "desgloseTiempo": {
+        "horasDiurnas": 0,
+        "fraccionesDiurnas": 0,
+        "horasNocturnas": 0
+      },
+      "cobro": {
+        "montoTotal": 0,
+        "subtotal": 0,
+        "iva": 0,
+        "moneda": "MXN"
+      },
+      "detallesPago": {
+        "metodoPago": "EFECTIVO",
+        "cajeroId": null
+      },
+      "facturacion": {
+        "requiereFacturaIndividual": false,
+        "estadoFacturacion": "PENDIENTE_GLOBAL",
+        "tokenAutofacturacion": "AF-0412CA96-202611",
+        "datosFiscales": null
+      },
+      "creadoEn": "2026-11-18T00:35:23.881Z"
+    }
+  ],
+  "configuracionTarifas": {
+    "tarifaBaseHora": 30,
+    "cuotaFraccion15": 8,
+    "inicioDiurno": "06:00",
+    "finDiurno": "22:00",
+    "tarifaNocturnaFija": 50
+  }
+}

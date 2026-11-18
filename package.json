@@ -1,18 +1,26 @@
 {
   "name": "parkcontrol",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Sistema de gestión de estacionamiento ParkControl – Monorepo",
+  "private": true,
   "scripts": {
-    "start":    "node src/index.js",
-    "dev":      "node --watch src/index.js",
-    "test":     "node tests/testReglas.js",
-    "test:api": "node tests/testApi.js"
+    "backend": "npm start --prefix backend",
+    "backend:dev": "npm run dev --prefix backend",
+    "backend:test": "npm test --prefix backend",
+    "frontend:dev": "npm run dev --prefix frontend"
   },
-  "keywords": [],
-  "type": "module",
-  "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.3.0"
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.6.2",
+    "init": "^0.1.2",
+    "install": "^0.13.0",
+    "lucide-react": "^1.74.0",
+    "npm": "^12.2.2",
+    "npx": "^10.2.2",
+    "postcss": "^8.5.33",
+    "tailwindcss": "^4.3.5"
   }
 }
